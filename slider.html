@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>3 Column Layout</title>
+   <link rel="stylesheet" href="assets/css/layout.css">
+   <script src="assets/js/script.js"></script>
+   <link rel = "stylesheet" href = assets/css/style.css>
+   <script>
+   window.onload = function() {
+       let slides = [
+           {
+               title: "YouTube",
+               background: "assets/img/youtube.jpg",
+               link: "https://www.youtube.com"
+           }, {
+               title: "Nasa",
+               background: "assets/img/nasa.png",
+               link: "https://www.nasa.gov"
+           }, {
+               title: "Twitter",
+               background: "assets/img/twitter.jpg",
+               link: "https://twitter.com"
+           }
+       ]
+       Slider.initSlider(slides);
+   };
+</script>
+</head>
+<body>
+<header class="header"><p><img src="assets/img/logo.jpg" width="30" height="30" alt="Image">Header...</p></header>
+<div class="container">
+    
+   <main class="center column">
+       <article>
+           <h1>Slider</h1>
+           <p></p>
+       </article>
+       <div id="slider">
+        </div>
+        
+        <!-- 3 -->
+        <input type="button" value="Prev" id="Prev"/>
+        <script>
+            function handlerPrev(e){
+                Slider.prevSlide();
+            }
+            Prev.addEventListener("click", handlerPrev)
+        </script>
+        <input type="button" value="Next" id="Next"/>
+        <script>
+            function handlerNext(e){
+               Slider.nextSlide();
+            }
+            Next.addEventListener("click", handlerNext)
+        </script>
+
+        <!-- 5-->
+        <input type="button" value="Start" id="toggle"/>
+        <script>
+            toggle.addEventListener('click', (event)=>{
+            if (event.target.classList.contains('start')){
+            event.target.innerHTML = 'Stop';
+            document.getElementById("toggle").value="Start";
+            clearInterval(interval)
+             } else {
+            event.target.innerHTML = 'Start';
+            document.getElementById("toggle").value="Stop";
+            interval = setInterval(()=>{
+            Slider.nextSlide();
+            },1000)
+            }
+            event.target.classList.toggle('start')
+            })
+        </script>
+
+        <button class="btn" id="button-slide-0">slide-0</button>
+        <button class="btn" id="button-slide-1">slide-1</button>
+        <button class="btn" id="button-slide-2">slide-2</button>
+
+        <br>
+        <!-- 4-->
+        <input type="button" value="Hide slider" id="Hider">
+        <script>
+           function hider(e){
+               if (document.getElementById("slider").hidden==true){
+                document.getElementById("slider").hidden=false;
+                document.getElementById("Hider").value="Hide slider";
+               } 
+               else{
+                document.getElementById("slider").hidden=true;
+                document.getElementById("Hider").value="Show slider";
+               } 
+           }           
+           Hider.addEventListener("click", hider);
+        </script>
+
+   </main>
+   <nav class="left column">
+       <h3>Left heading</h3>
+       <ul>
+        <li><a href="index.html">Index</a></li>
+        <li><a href="contact.html">Contact</a></li> 
+        <li><a href="about.html">About</a></li>       
+        <li><a href="media.html">Media</a></li>
+        <li><a href="table.html">Table</a></li>
+       </ul>
+   </nav>
+   <div class="right column">
+       <h3>Right heading</h3>
+       <p></p>
+   </div>
+   <div class="push"></div>
+</div>
+<div class="footer-wrapper">
+   <footer class="footer"><p><img src="assets/img/logo.jpg" width="30" height="30" alt="Image">Footer...</p></footer>
+</div>
+</body>
+</html>
