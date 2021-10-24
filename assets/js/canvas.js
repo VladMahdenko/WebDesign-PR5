@@ -142,7 +142,7 @@ function canvas(selector, options){
    //brush size
   const brushSel = document.createElement('input')
   brushSel.setAttribute("type", "number")
-  brushSel.classList.add('select')
+  brushSel.classList.add('input')
   brushSel.value=5
   brushSel.min = 0
   brushSel.max = 50
